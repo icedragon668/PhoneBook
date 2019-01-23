@@ -64,7 +64,7 @@ const handleClick = function (event) {
 // end functions //
 
 
-let which = '';
+let which = 'initial';
 const showAdd = function () { reveal("Add") }
 const showDelete = function () { reveal("Delete") }
 const showUpdate = function () { reveal("Update") }
@@ -77,7 +77,8 @@ $('.navUpdate').on('click', showUpdate);
 $('.navVerify').on('click', showVerify);
 $('.navView').on('click', showView);
 
-$('#submit').on('click', handleClick);
+// $('#submit').on('click', handleClick); // see below
+$('d').on('click', console.log(which)); //running on load not on click
 
 $('#buttonAdd').on('click', formAdd);
 $('#buttonDelete').on('click', formDelete);
