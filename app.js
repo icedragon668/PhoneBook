@@ -1,5 +1,5 @@
 //on load functions... populate data, clear other (reverse order) // ??
-
+// functions //
 const formAdd = function() {
     $('.cards').append(`<div id="${document.forms["addForm"]["name"].value}Card"><p>Name: ${document.forms["addForm"]["name"].value}</p>
     <p>Office Number: ${document.forms["addForm"]["officeNum"].value}</p>
@@ -9,8 +9,12 @@ const formAdd = function() {
 const formDelete = function () {console.log(`Placeholder!`)}
 const formUpdate = function () {console.log(`Placeholder!`)}
 const formVerify = function () {console.log(`Placeholder!`)
+    console.log(employeeNameArray);
+
     //psuedocode
      /*
+     get namelist and place in array
+     check array for nameinput
     inout name, check name v employeelist... add doesn/t add to employee list...
     check text/html of the cards?
     if inputName is in .cards, then yay, else boo
@@ -21,13 +25,46 @@ const formVerify = function () {console.log(`Placeholder!`)
      $(`.body`).hide();
      $(`.${which}`).show();
      console.log(`${which} via reveal`);
+     return {which: which}
  }
 
- $('#buttonAdd').on('click', formAdd);
- $('#buttonDelete').on('click', formDelete);
- $('#buttonUpdate').on('click', formUpdate);
- $('#buttonVerify').on('click', formVerify);
+/////////////////
+/*submit button slightly better
+input type="submit"
+in js: */
+const handleClick = function (event) {
 
+    console.log(which);
+
+    event.preventDefault();
+    // const nameIn = $('#name').val();
+    // const officeNumIn = $('#officeNum').val();
+    // const phoneNumIn = $('#phoneNum').val();
+
+    // console.log(`${nameIn}, ${officeNumIn}, ${phoneNumIn}`);
+
+    // $('#name').val('');
+    // $('#officeNum').val('');
+    // $('#phoneNum').val('');
+
+    // console.log(`${nameIn}, ${officeNumIn}, ${phoneNumIn}`);
+
+    // if (which === "Add") {
+    //     formAdd();
+    // } else if (which === "Delete") {
+    //     formDelete();
+    // } else if (which === "Update") {
+    //     formUpdate();
+    // } else if (which === "Verify") {
+    //     formVerify();
+    // }
+    // console.log(`${nameIn}, ${officeNumIn}, ${phoneNumIn}`);
+}
+
+// end functions //
+
+
+let which = '';
 const showAdd = function () { reveal("Add") }
 const showDelete = function () { reveal("Delete") }
 const showUpdate = function () { reveal("Update") }
@@ -40,26 +77,18 @@ $('.navUpdate').on('click', showUpdate);
 $('.navVerify').on('click', showVerify);
 $('.navView').on('click', showView);
 
-
-/////////////////
-/*submit button slightly better
-input type="submit"
-in js: 
-const handleClick = function (event) {
-    event.preventDefault();
-    const name = $('#name').val();
-    const officeNum = $('#officeNum').val();
-    const phoneNum = $('#phoneNum').val();
-
-    $('#name').val('');
-    $('#officeNum').val('');
-    $('#phoneNum').val('');
-
-    console.log(`${name}, ${officeNum}, ${phoneNum}`);
-}
-
 $('#submit').on('click', handleClick);
-*/
+
+$('#buttonAdd').on('click', formAdd);
+$('#buttonDelete').on('click', formDelete);
+$('#buttonUpdate').on('click', formUpdate);
+$('#buttonVerify').on('click', formVerify);
+
+
+const employeeNameArray = [];
+for (let i=0; i <employeeList.length; i++) {
+    employeeNameArray.push(employeeList[i].name);
+} console.log(employeeNameArray);
 
 //this block initializes the list
 for (let i=0; i <employeeList.length; i++) { //stick the out into a 'card' div for style
