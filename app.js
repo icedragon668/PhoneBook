@@ -1,32 +1,54 @@
 //on load functions... populate data, clear other (reverse order) // ??
-// functions //
-const formAdd = function() {
-    $('.cards').append(`<div id="${document.forms["addForm"]["name"].value}Card"><p>Name: ${document.forms["addForm"]["name"].value}</p>
-    <p>Office Number: ${document.forms["addForm"]["officeNum"].value}</p>
-    <p> Phone Number: ${document.forms["addForm"]["phoneNum"].value}</div>`);
-}  //change this to pushing on object
 
-const formDelete = function () {console.log(`Placeholder!`)}
-const formUpdate = function () {console.log(`Placeholder!`)}
-const formVerify = function () {console.log(`Placeholder!`)
+// functions //
+const render = function () {
+    for (let i = 0; i < employeeList.length; i++) { //stick the out into a 'card' div for style?
+        $('.cards').append(`<div id="${employeeList[i].name}Card"><p>Name: ${employeeList[i].name}</p>
+                      <p>Office Number: ${employeeList[i].officeNum}</p>
+                      <p> Phone Number: ${employeeList[i].phoneNum}</p></div>`)
+    } //renders the list, with DOM style options  
+}  
+
+const formAdd = function () {
+    const name = document.forms["addForm"]["name"].value;
+    const officeNum = document.forms["addForm"]["officeNum"].value;
+    const phoneNum = document.forms["addForm"]["phoneNum"].value;
+    const newEmployee = { //this is a #$%^ING OBJECT
+        name: name,
+        officeNum: officeNum,
+        phoneNum: phoneNum
+    } // end #$%^ING OBJECT
+    employeeList.push(newEmployee);
+    render();
+};
+const formDelete = function () { console.log(`Placeholder!`) } // .EMPTY
+const formUpdate = function () { console.log(`Placeholder!`) } // .TEXT
+const formVerify = function () {
+    console.log(`Placeholder!`)
     console.log(employeeNameArray);
+    for (let i = 0; i < employeeNameArray.length; i++) {
+        const element = employeeNameArray[i];
+        if (document.forms["verifyForm"]["name"].value === element) {
+            console.log(`Present!`);
+        } else { }
+    }
 
     //psuedocode
-     /*
-     get namelist and place in array
-     check array for nameinput
-    inout name, check name v employeelist... add doesn/t add to employee list...
-    check text/html of the cards?
-    if inputName is in .cards, then yay, else boo
-    */
+    /*
+    get namelist and place in array
+    check array for nameinput
+   inout name, check name v employeelist... add doesn/t add to employee list...
+   check text/html of the cards?
+   if inputName is in .cards, then yay, else boo
+   */
 }
 
- const reveal = function (which) {
-     $(`.body`).hide();
-     $(`.${which}`).show();
-     console.log(`${which} via reveal`);
-     return {which: which}
- }
+const reveal = function (which) {
+    $(`.body`).hide();
+    $(`.${which}`).show();
+    console.log(`${which} via reveal`);
+    return { which: which }
+}
 
 /////////////////
 /*submit button slightly better
@@ -78,7 +100,7 @@ $('.navVerify').on('click', showVerify);
 $('.navView').on('click', showView);
 
 // $('#submit').on('click', handleClick); // see below
-$('d').on('click', console.log(which)); //running on load not on click
+$(`#submit`).on('click', console.log("submit clicked?")); //running on load not on click
 
 $('#buttonAdd').on('click', formAdd);
 $('#buttonDelete').on('click', formDelete);
@@ -87,12 +109,12 @@ $('#buttonVerify').on('click', formVerify);
 
 
 const employeeNameArray = [];
-for (let i=0; i <employeeList.length; i++) {
+for (let i = 0; i < employeeList.length; i++) {
     employeeNameArray.push(employeeList[i].name);
 } console.log(employeeNameArray);
 
 //this block initializes the list
-for (let i=0; i <employeeList.length; i++) { //stick the out into a 'card' div for style
+for (let i = 0; i < employeeList.length; i++) { //stick the out into a 'card' div for style
     $('.cards').append(`<div id=${employeeList[i].name} Card><p>Name: ${employeeList[i].name}</p>
                       <p>Office Number: ${employeeList[i].officeNum}</p>
                       <p> Phone Number: ${employeeList[i].phoneNum}</p></div>`)
