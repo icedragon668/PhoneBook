@@ -1,50 +1,32 @@
-//on load functions... populate data, clear other (reverse order)
+//on load functions... populate data, clear other (reverse order) // ??
 
-//buttonAdd on click: log info
-const formAdd = function() { //stick the out into a 'card' div for style
-    $('.List').append(`<div id="${document.forms["addForm"]["name"].value}List"><br><p>Name: ${document.forms["addForm"]["name"].value}</p>
+const formAdd = function() {
+    $('.cards').append(`<div id="${document.forms["addForm"]["name"].value}Card"><p>Name: ${document.forms["addForm"]["name"].value}</p>
     <p>Office Number: ${document.forms["addForm"]["officeNum"].value}</p>
-    <p> Phone Number: ${document.forms["addForm"]["phoneNum"].value}`);
+    <p> Phone Number: ${document.forms["addForm"]["phoneNum"].value}</div>`);
+}  //change this to pushing on object
+
+const formDelete = function () {console.log(`Placeholder!`)}
+const formUpdate = function () {console.log(`Placeholder!`)}
+const formVerify = function () {console.log(`Placeholder!`)
+    //psuedocode
+     /*
+    inout name, check name v employeelist... add doesn/t add to employee list...
+    check text/html of the cards?
+    if inputName is in .cards, then yay, else boo
+    */
 }
 
-$('#buttonAdd').on('click', formAdd);
-
-
-// const showAdd = function () {
-//     $('.body').hide();
-//     $('.Add').show()
-//     console.log('add?')
-// }
-
-// const showDelete = function () {
-//     $('.body').hide();
-//     $('.Delete').show()
-//     console.log('delete?')
-// }
-
-
-// const showUpdate = function () {
-//     $('.body').hide();
-//     $('.Update').show();
-//     console.log('update?')
-// }
-
-// const showVerify = function () {
-//     $('.body').hide();
-//     $('.Verify').show();
-//     console.log('verify?')
-// }
-
-// const showView = function () {
-//     $('.body').hide();
-//     $('.View').show();
-//     console.log('click!')
-// }
  const reveal = function (which) {
      $(`.body`).hide();
      $(`.${which}`).show();
      console.log(`${which} via reveal`);
- } //presently broken, just runs //needs lingo update (which vs whichList)
+ }
+
+ $('#buttonAdd').on('click', formAdd);
+ $('#buttonDelete').on('click', formDelete);
+ $('#buttonUpdate').on('click', formUpdate);
+ $('#buttonVerify').on('click', formVerify);
 
 const showAdd = function () { reveal("Add") }
 const showDelete = function () { reveal("Delete") }
@@ -62,7 +44,7 @@ $('.navView').on('click', showView);
 /////////////////
 /*submit button slightly better
 input type="submit"
-in js: */
+in js: 
 const handleClick = function (event) {
     event.preventDefault();
     const name = $('#name').val();
@@ -77,11 +59,11 @@ const handleClick = function (event) {
 }
 
 $('#submit').on('click', handleClick);
+*/
 
-
-$(".List").empty(); //this block initializes the list
+//this block initializes the list
 for (let i=0; i <employeeList.length; i++) { //stick the out into a 'card' div for style
-    $('.List').append(`<div id=${employeeList[i].name}List><br><p>Name: ${employeeList[i].name}</p>
+    $('.cards').append(`<div id=${employeeList[i].name} Card><p>Name: ${employeeList[i].name}</p>
                       <p>Office Number: ${employeeList[i].officeNum}</p>
-                      <p> Phone Number: ${employeeList[i].phoneNum}</p><br></div>`)
-}
+                      <p> Phone Number: ${employeeList[i].phoneNum}</p></div>`)
+}  // changes this to create and object, then listing it. allows for array manipulation instead of just DOM >.<
