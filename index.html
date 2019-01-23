@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <title>PhoneBook</title>
+</head>
+
+<body class="container">
+  <!-- bootstrap req addition? -->
+  <nav>
+    <ul img="tiny icon">
+      <!-- better for dynamic, but harder read or easier to read but static? also, where does display inline box need to go? and images? review time!-->
+      <li class="navAdd">add</li>
+      <li class='navDelete'>delete</li>
+      <li class='navUpdate'>update</li>
+      <li class="navVerify">verify</li>
+      <li class='navView'>view</li>
+    </ul>
+  </nav>
+  <main>
+    <div class="body Add" style='display: none;'>add Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Repudiandae perferendis velit maiores inventore et aliquam doloribus, odio quia magnam veniam itaque! Molestias
+      consequatur quos, voluptas libero eaque accusantium unde veniam!
+      <form name="addForm">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name">
+      <!-- </form> -->
+      <!-- <form> -->
+        <label for="officeNum">Office Number</label>
+        <input type="text" id="officeNum" name="officeNum">
+      <!-- </form> -->
+      <!-- <form> -->
+        <label for="phoneNum">Phone Number</label>
+        <input type="text" id="phoneNum" name="phoneNum">
+      </form>
+      <button id="buttonAdd">Add</button>
+      <input type="submit" id="submit" />
+      <div class="List">.</div>
+    </div>
+    <div class="body Delete" style='display: none;'>delete Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Quidem pariatur vero consequatur, rem quaerat corrupti tempora inventore mollitia ex. Beatae error rem, sit
+      commodi quos totam omnis dolorum nisi reiciendis.
+      <form name='deleteForm'>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name">
+      </form>
+      <button id="buttonDelete">Delete</button>
+      <div class="List">.</div>
+    </div>
+    <div class="body Update" style='display: none;'>update Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+      Perferendis, quo at libero illo dolor fugiat ducimus quia rem eaque quasi itaque, eum nobis inventore quos
+      corrupti? Distinctio voluptatum eum sunt!
+      <form>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name">
+      </form>
+      <form>
+        <label for="officeNum">Office Number</label>
+        <input type="text" id="officeNum" name="officeNum">
+      </form>
+      <form>
+        <label for="phoneNum">Phone Number</label>
+        <input type="text" id="phoneNum" name="phoneNum">
+      </form>
+      <button id="buttonUpdate">Update</button>
+      <div id="updateList">.</div>
+    </div>
+    <div class="body Verify" style='display: none;'>verify Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et
+      beatae dolores quod quasi placeat rerum! Eos quia consequatur totam nostrum ex maxime, optio quas aliquid natus
+      possimus quod incidunt corrupti.
+      <form>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name">
+      </form>
+      <button id="buttonVerify">Verify</button>
+      <!--i want a check/x pic wih the name aobve it here-->
+      <div id="verifyList">.</div>
+    </div>
+    <div class="body View" style='display: none;'>view Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+      ipsum rem quaerat, quia assumenda laboriosam voluptatum ullam autem repudiandae voluptatem tenetur laudantium
+      atque, praesentium nemo cupiditate provident ducimus, aspernatur voluptate!
+    </div>
+    <div id="viewList">.</div>
+  </main>
+
+  <script src="dom.js"></script>
+  <script src="employeeList.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
+
+<!--
+        <form>
+            <label for="name">Name</label>
+            <br>
+            <input type="text" id="name" name="name">
+        </form>
+
+                <form>
+            <label for="msg">Message</label>
+            <br>
+            <textarea type="text" id="msg" name="msg" style="width:95%" placeholder="Write something. Or don't. I'm not your mother... Or am I?"></textarea>
+        </form>
+        <button><a href="mailto:icedragon668@gmail.com">Submit</a></button>
+<button><a href="mailto:icedragon668@gmail.com">Submit</a></button>
+-->
