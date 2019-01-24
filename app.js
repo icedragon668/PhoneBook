@@ -69,6 +69,8 @@ const formUpdate = function () {
         console.log("Present");
         console.log(employeeIndex);
         employeeListJS[employeeIndex].name = newName
+        employeeListJS[employeeIndex].officeNum = officeNum
+        employeeListJS[employeeIndex].phoneNum = phoneNum
         console.log(employeeListJS[employeeIndex].name);
     } else {
         console.log("Absent");
