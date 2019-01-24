@@ -5,7 +5,7 @@ const render = function () {
     $(".cards").empty();
     for (let i = 0; i < employeeListJS.length; i++) { //stick the out into a 'card' div for style?
     // console.log(`${employeeList[employeeIndex].name} take 3`);
-        $('.cards').append(`<div id="${employeeListJS[i].name}" class="card"><p>Name: ${employeeListJS[i].name}</p>
+        $('.cards').append(`<div id="${employeeListJS[i].name}" class="card col-3"><p>Name: ${employeeListJS[i].name}</p>
                       <p>Office Number: ${employeeListJS[i].officeNum}</p>
                       <p> Phone Number: ${employeeListJS[i].phoneNum}</p></div>`)
     } // console.log(`${employeeList[employeeIndex].name} take 4`); //renders the list, with DOM style options  
@@ -169,7 +169,7 @@ for (let i = 0; i < employeeList.length; i++) {
 
 //this block initializes the list
 for (let i = 0; i < employeeList.length; i++) { //stick the out into a 'card' div for style
-    $('.cards').append(`<div id="${employeeList[i].name}" class="card"><p>Name: ${employeeList[i].name}</p>
+    $('.cards').append(`<div id="${employeeList[i].name}" class="card col-3"><p>Name: ${employeeList[i].name}</p>
                       <p>Office Number: ${employeeList[i].officeNum}</p>
                       <p> Phone Number: ${employeeList[i].phoneNum}</p></div>`)
 }  // changes this to create and object, then listing it. allows for array manipulation instead of just DOM >.<
