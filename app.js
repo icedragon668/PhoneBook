@@ -93,6 +93,7 @@ const formVerify = function () {
         alert("Present");
         console.log(employeeIndex);
     } else {
+        alert("Absent");
         console.log("Absent");
     }
     employeeIndex = -1;
