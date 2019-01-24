@@ -9,3 +9,8 @@
     color: #fff;
     transition: all 0.3s;
 }
+
+.cards {
+    position: fixed;
+    left: 210px;
+}
