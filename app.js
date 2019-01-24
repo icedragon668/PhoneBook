@@ -107,11 +107,11 @@ const reveal = function (which) {
 /*submit button slightly better
 input type="submit"
 in js: */
-const handleClick = function (event) {
+// const handleClick = function (event) {
 
-    console.log(which);
+//     console.log(which);
 
-    event.preventDefault();
+//     event.preventDefault();
     // const nameIn = $('#name').val();
     // const officeNumIn = $('#officeNum').val();
     // const phoneNumIn = $('#phoneNum').val();
@@ -134,7 +134,7 @@ const handleClick = function (event) {
     //     formVerify();
     // }
     // console.log(`${nameIn}, ${officeNumIn}, ${phoneNumIn}`);
-}
+// }
 
 // end functions //
 
@@ -154,7 +154,7 @@ $('.navVerify').on('click', showVerify);
 $('.navView').on('click', showView);
 
 // $('#submit').on('click', handleClick); // see below
-$(`#submit`).on('click', console.log("submit clicked?")); //running on load not on click
+// $(`#submit`).on('click', console.log("submit clicked?")); //running on load not on click
 
 $('#buttonAdd').on('click', formAdd);
 $('#buttonDelete').on('click', formDelete);

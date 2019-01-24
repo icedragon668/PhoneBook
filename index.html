@@ -13,8 +13,9 @@
 
 <body class="container">
   <!-- bootstrap req addition? -->
-  <nav>
-    <ul img="tiny icon">
+  <nav class="wrapper">
+    <h2 class="sidebar-header">Actions</h2>
+    <ul class="list-unstyled components">
       <!-- better for dynamic, but harder read or easier to read but static? also, where does display inline box need to go? and images? review time!-->
       <li class="navAdd">add</li>
       <li class='navDelete'>delete</li>
@@ -29,17 +30,15 @@
       <form name="addForm">
         <label for="name">Name</label>
         <input type="text" id="name" name="name">
-      <!-- </form> -->
-      <!-- <form> -->
+
         <label for="officeNum">Office Number</label>
         <input type="text" id="officeNum" name="officeNum">
-      <!-- </form> -->
-      <!-- <form> -->
+        
         <label for="phoneNum">Phone Number</label>
         <input type="text" id="phoneNum" name="phoneNum">
+      
       </form>
       <button id="buttonAdd">Add</button>
-      <!-- <input type="submit" id="submit" /> -->
     </div>
 
     <div class="body Delete" style='display: none;'>
@@ -78,7 +77,7 @@
       atque, praesentium nemo cupiditate provident ducimus, aspernatur voluptate!
     </div>
     
-    <div class="cards"><input type="submit" id="submit" /></div>
+    <div class="cards"></div>
 
   </main>
 
