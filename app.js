@@ -10,7 +10,8 @@ const render = function () {
     }
 }
 
-const Add = function () {
+const Add = function (event) {
+    event.preventDefault()
     console.log("Add function triggered");
     const name = document.forms["addForm"]["name"].value;
     const officeNum = document.forms["addForm"]["officeNum"].value;
@@ -82,6 +83,9 @@ const Update = function () {
 } // .TEXT
 
 const Verify = function () {
+    $('.yes').hide();
+    $('.no').hide();
+    $('.present').show();
     for (let i = 0; i < employeeList.length; i++) {
         const element = employeeList[i].name;
         if (document.forms["verifyForm"]["name"].value === element) {
@@ -89,9 +93,13 @@ const Verify = function () {
         }
     }
     if (employeeIndex >= 0) {
-        alert("Present");
+        // alert("Present");
+        $('.yes').show();
+        $('.no').hide();
     } else {
-        alert("Absent");
+        $('.no').show();
+        $('.yes').hide();
+        // alert("Absent");
     }
     render();
     employeeIndex = -1;
@@ -161,6 +169,7 @@ $('#buttonAdd').on('click', Add);
 $('#buttonDelete').on('click', Delete);
 $('#buttonUpdate').on('click', Update);
 $('#buttonVerify').on('click', Verify);
+
 
 
 // for (let i = 0; i < employeeList.length; i++) {
