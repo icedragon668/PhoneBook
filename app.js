@@ -11,17 +11,19 @@ const render = function () {
 }
 
 const Add = function () {
+    console.log("Add function triggered");
     const name = document.forms["addForm"]["name"].value;
     const officeNum = document.forms["addForm"]["officeNum"].value;
     const phoneNum = document.forms["addForm"]["phoneNum"].value;
-    const newEmployee = {
+    let newEmployee = {
         name: name,
         officeNum: officeNum,
         phoneNum: phoneNum
     }
     employeeList.push(newEmployee);
     render();
-    $('#buttonVerify').on('click', Add);
+    $('#buttonAdd').on('click', Add);
+    console.log("Add function finished");
 }; 
 
 const Delete = function () {
@@ -83,6 +85,7 @@ const Verify = function () {
     } else {
         alert("Absent");
     }
+    render();
     employeeIndex = -1;
     $('#buttonVerify').on('click', Verify);
 }
