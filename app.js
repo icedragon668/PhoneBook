@@ -27,7 +27,7 @@ const Add = function () {
 }; 
 
 const Delete = function () {
-    for (let i = 0; i < employeeList[i].name.length; i++) {
+    for (let i = 0; i < employeeList.length; i++) {
         const element = employeeList[i].name;
         if (document.forms["deleteForm"]["name"].value === element) {
             employeeIndex = i;
