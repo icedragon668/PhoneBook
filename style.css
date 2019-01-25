@@ -13,4 +13,10 @@
 .cards {
     position: fixed;
     left: 210px;
+    top: 100px;
+}
+
+.body {
+    position: fixed;
+    left: 210px;
 }
