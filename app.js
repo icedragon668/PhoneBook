@@ -60,9 +60,17 @@ const Update = function () {
     }
     if (employeeIndex >= 0) {
         console.log("Present");
-        employeeList[employeeIndex].name = newName
-        employeeList[employeeIndex].officeNum = officeNum
-        employeeList[employeeIndex].phoneNum = phoneNum
+        if (newName !== '') {
+            employeeList[employeeIndex].name = newName
+        }
+        if (officeNum !== '') {
+            employeeList[employeeIndex].officeNum = officeNum;
+        }
+        if (phoneNum !== '') {
+            employeeList[employeeIndex].phoneNum = phoneNum
+        }
+         
+        
         console.log(employeeList[employeeIndex].name);
     } else {
         console.log("Absent");
