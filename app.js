@@ -3,106 +3,93 @@
 // functions //
 const render = function () {
     $(".cards").empty();
-    for (let i = 0; i < employeeListJS.length; i++) { //stick the out into a 'card' div for style?
-    // console.log(`${employeeList[employeeIndex].name} take 3`);
-        $('.cards').append(`<div id="${employeeListJS[i].name}" class="card col-3"><p>Name: ${employeeListJS[i].name}</p>
-                      <p>Office Number: ${employeeListJS[i].officeNum}</p>
-                      <p> Phone Number: ${employeeListJS[i].phoneNum}</p></div>`)
-    } // console.log(`${employeeList[employeeIndex].name} take 4`); //renders the list, with DOM style options  
-    const employeeNameArray = [];
-    for (let i = 0; i < employeeListJS.length; i++) {
-        employeeNameArray.push(employeeListJS[i].name);
-        console.log(employeeNameArray);
+    for (let i = 0; i < employeeList.length; i++) { //stick the out into a 'card' div for style?
+        $('.cards').append(`<div id="${employeeList[i].name}" class="card col-3"><p>Name: ${employeeList[i].name}</p>
+                      <p>Office Number: ${employeeList[i].officeNum}</p>
+                      <p> Phone Number: ${employeeList[i].phoneNum}</p></div>`)
     }
-}  
+}
 
-const formAdd = function () {
+const Add = function () {
     const name = document.forms["addForm"]["name"].value;
     const officeNum = document.forms["addForm"]["officeNum"].value;
     const phoneNum = document.forms["addForm"]["phoneNum"].value;
-    const newEmployee = { //this is a #$%^ING OBJECT
+    const newEmployee = {
         name: name,
         officeNum: officeNum,
         phoneNum: phoneNum
-    } // end #$%^ING OBJECT
-    employeeListJS.push(newEmployee);
+    }
+    employeeList.push(newEmployee);
     render();
-};
+    $('#buttonVerify').on('click', Add);
+}; 
 
-const formDelete = function () { //deleting at index number of original name, no updating
-    console.log(document.forms["deleteForm"]["name"].value);  // ie Juan deletes [1] everytime
-    console.log(employeeNameArray);
-    for (let i = 0; i < employeeNameArray.length; i++) {
-        const element = employeeNameArray[i];
+const Delete = function () {
+    for (let i = 0; i < employeeList[i].name.length; i++) {
+        const element = employeeList[i].name;
         if (document.forms["deleteForm"]["name"].value === element) {
             employeeIndex = i;
         }
     }
     if (employeeIndex >= 0) {
         console.log("Present");
-        console.log(employeeIndex);
-        employeeListJS.splice(employeeIndex, 1);
+        employeeList.splice(employeeIndex, 1);
     } else {
         console.log("Absent");
     }
 
     render();
     employeeIndex = -1;
+    $('#buttonVerify').on('click', Delete);
 }
 
 
-const formUpdate = function () {
-    console.log(document.forms["updateForm"]["oldName"].value);
-
+const Update = function () {
     const oldName = document.forms["updateForm"]["oldName"].value;
     const newName = document.forms["updateForm"]["name"].value;
     const officeNum = document.forms["updateForm"]["officeNum"].value;
     const phoneNum = document.forms["updateForm"]["phoneNum"].value;
 
-    for (let i = 0; i < employeeNameArray.length; i++) {
-        const element = employeeNameArray[i];
-        if (document.forms["updateForm"]["oldName"].value === element) {
+    for (let i = 0; i < employeeList.length; i++) {
+        const element = employeeList[i].name;
+        if (oldName === element) {
             employeeIndex = i;
         }
     }
     if (employeeIndex >= 0) {
         console.log("Present");
-        console.log(employeeIndex);
-        employeeListJS[employeeIndex].name = newName
-        employeeListJS[employeeIndex].officeNum = officeNum
-        employeeListJS[employeeIndex].phoneNum = phoneNum
-        console.log(employeeListJS[employeeIndex].name);
+        employeeList[employeeIndex].name = newName
+        employeeList[employeeIndex].officeNum = officeNum
+        employeeList[employeeIndex].phoneNum = phoneNum
+        console.log(employeeList[employeeIndex].name);
     } else {
         console.log("Absent");
     }
-    // console.log(`${employeeListJS[employeeIndex].name} take 2`);
+    // console.log(`${employeeList[employeeIndex].name} take 2`);
     render();
     employeeIndex = -1;
+    $('#buttonVerify').on('click', Update);
 } // .TEXT
 
-const formVerify = function () {
-    console.log(employeeNameArray);
-    for (let i = 0; i < employeeNameArray.length; i++) {
-        const element = employeeNameArray[i];
+const Verify = function () {
+    for (let i = 0; i < employeeList.length; i++) {
+        const element = employeeList[i].name;
         if (document.forms["verifyForm"]["name"].value === element) {
             employeeIndex = i;
         }
     }
     if (employeeIndex >= 0) {
-        // console.log("Present");
         alert("Present");
-        console.log(employeeIndex);
     } else {
         alert("Absent");
-        console.log("Absent");
     }
     employeeIndex = -1;
+    $('#buttonVerify').on('click', Verify);
 }
 
 const reveal = function (which) {
     $(`.body`).hide();
-    $(`.${which}`).show();
-    console.log(`${which} via reveal`);
+    $(`.${which}`).show();    
     return { which: which }
 }
 
@@ -159,16 +146,15 @@ $('.navView').on('click', showView);
 // $('#submit').on('click', handleClick); // see below
 // $(`#submit`).on('click', console.log("submit clicked?")); //running on load not on click
 
-$('#buttonAdd').on('click', formAdd);
-$('#buttonDelete').on('click', formDelete);
-$('#buttonUpdate').on('click', formUpdate);
-$('#buttonVerify').on('click', formVerify);
+$('#buttonAdd').on('click', Add);
+$('#buttonDelete').on('click', Delete);
+$('#buttonUpdate').on('click', Update);
+$('#buttonVerify').on('click', Verify);
 
 
-const employeeNameArray = [];
-for (let i = 0; i < employeeList.length; i++) {
-    employeeNameArray.push(employeeList[i].name);
-} console.log(employeeNameArray);
+// for (let i = 0; i < employeeList.length; i++) {
+//     employeeList[i].name.push(employeeList[i].name);
+// } console.log(employeeList[i].name);
 
 //this block initializes the list
 for (let i = 0; i < employeeList.length; i++) { //stick the out into a 'card' div for style
@@ -177,4 +163,3 @@ for (let i = 0; i < employeeList.length; i++) { //stick the out into a 'card' di
                       <p> Phone Number: ${employeeList[i].phoneNum}</p></div>`)
 }  // changes this to create and object, then listing it. allows for array manipulation instead of just DOM >.<
 
-const employeeListJS = employeeList
