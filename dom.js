@@ -1,3 +1,5 @@
+//branch check
+
 const $ = function (selector) {
   const nodeList = document.querySelectorAll(selector);
 
